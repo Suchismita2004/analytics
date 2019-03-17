@@ -84,7 +84,7 @@ summary(fit1)
 fit2= glm(passfail~marks1+marks2+gender+course, data = data2, family='binomial')
 summary(fit2)
 
-# craete a DT using previous case of logistic model
+# create a DT using previous case of logistic model
 library(rpart)
 fit3=rpart(passfail~ marks1+marks2+gender, data=data2, method = 'class')
 summary(fit3)

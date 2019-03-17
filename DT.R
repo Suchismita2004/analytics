@@ -17,14 +17,15 @@ str(data)
 names(data)
 table(data$survived)
 str(data)
-fit <- rpart(survived ~ ., data = data, method = 'class')
+fit <- rpart(survived ~ ., data = data, method = 'class') # it is a model
 fit
 rpart.plot(fit, extra = 104, cex=.8,nn=T)  #plot
 head(data)
-printcp(fit) #select complexity parameter
-prunetree2 = prune(fit, cp=.014)
+printcp(fit) #select complexity parameter (cutting short of the variables)
+prunetree2 = prune(fit, cp=.015) # value of cp should be such that the cross validation error is the least.
 rpart.plot(prunetree2, cex=.8,nn=T, extra=104)
 prunetree2
+# GD coefficient to classify
 nrow(data)
 table(data$survived)
 # predict for Female, pclass=3, siblings=2, what is the chance of survival
